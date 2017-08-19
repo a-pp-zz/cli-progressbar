@@ -18,16 +18,16 @@ class Progressbar {
 		}
 	}
 
-	public function start ($text = NULL)
+	public function start ($text = NULL, $color = 'cyan')
 	{
 		if ( ! $text) {
 			$text = 'Processing';
 		}
 
-		if ($total) {
-			$this->text (sprintf('%s [%d/%d]', $text, ++$counter, $total), 'green');
+		if ($this->_total) {
+			$this->text (sprintf('%s [%d/%d]', $text, ++Progressbar::$counter, $this->_total), $color);
 		} else {
-			$this->text (sprintf('%s %d', $text, ++$counter), 'green');
+			$this->text (sprintf('%s %d', $text, ++Progressbar::$counter), $color);
 		}
 	}
 
